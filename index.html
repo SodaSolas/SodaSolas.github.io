@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SodaSolas — Personal Site</title>
+  <meta name="description" content="SodaSolas personal site — projects, wiki, and GitHub." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=JetBrains+Mono:wght@400;500&family=Sora:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+  <div class="sea" aria-hidden="true">
+    <div class="sea__caustic"></div>
+    <div class="sea__rays"></div>
+    <div class="sea__noise"></div>
+  </div>
+  <div class="bubbles" aria-hidden="true"></div>
+
+  <div class="shell">
+    <header class="topbar">
+      <a class="topbar__mark" href="index.html">SODA<span>SOLAS</span></a>
+      <nav class="topbar__nav" aria-label="主导航">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="wiki/index.html">Wiki</a>
+        <a href="https://github.com/SodaSolas" target="_blank" rel="noopener">Repos</a>
+      </nav>
+      <a class="topbar__gh" href="https://github.com/SodaSolas" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.57 7.57 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <h1 class="hero__brand">SODA<em>SOLAS</em></h1>
+          <div class="hero__line" aria-hidden="true"></div>
+          <p class="hero__headline">What are you looking at?</p>
+          <p class="hero__sub">个人站 · 项目与文档 Wiki · 深蓝菜单风界面。从这里进入分类文档，或跳转到 GitHub。</p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="wiki/index.html">
+              <span class="btn__tri" aria-hidden="true"></span>
+              Enter Wiki
+            </a>
+            <a class="btn btn--ghost" href="https://github.com/SodaSolas" target="_blank" rel="noopener">Open GitHub</a>
+          </div>
+        </div>
+
+        <div class="shard" aria-hidden="true">
+          <div class="shard__glow"></div>
+          <div class="shard__frame">
+            <div class="shard__portrait">S</div>
+          </div>
+          <div class="shard__label">
+            Status
+            <strong>ONLINE · <span data-clock>--:--:--</span></strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="menu-strip" aria-label="快捷入口">
+        <div class="menu-strip__head">
+          <h2 class="menu-strip__title">Select</h2>
+          <span class="menu-strip__meta">MENU / 01</span>
+        </div>
+        <ul class="menu-list">
+          <li>
+            <a href="wiki/index.html">
+              <span class="menu-list__idx">01</span>
+              <span class="menu-list__name">Wiki</span>
+              <span class="menu-list__desc">文档分类索引</span>
+            </a>
+          </li>
+          <li>
+            <a href="wiki/projects.html">
+              <span class="menu-list__idx">02</span>
+              <span class="menu-list__name">Projects</span>
+              <span class="menu-list__desc">Arcadia:Farm 与其它仓库</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/SodaSolas" target="_blank" rel="noopener">
+              <span class="menu-list__idx">03</span>
+              <span class="menu-list__name">GitHub</span>
+              <span class="menu-list__desc">github.com/SodaSolas</span>
+            </a>
+          </li>
+          <li>
+            <a href="wiki/about.html">
+              <span class="menu-list__idx">04</span>
+              <span class="menu-list__name">About</span>
+              <span class="menu-list__desc">关于站主与本站</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>© SodaSolas · Persona 3 Reload UI inspired</span>
+      <a href="https://github.com/SodaSolas" target="_blank" rel="noopener">github.com/SodaSolas</a>
+    </footer>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
