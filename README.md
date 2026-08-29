@@ -1,10 +1,10 @@
-# SodaSolas Personal Site
+# VON
 
-Persona 3 Reload–inspired personal site with Wiki categories and GitHub links.
+Persona 3 Reload–inspired personal site.
 
 ## Local
 
-Open `index.html` in a browser, or:
+Open `index.html`, or:
 
 ```powershell
 cd E:\soda-site
@@ -13,11 +13,12 @@ npx --yes serve .
 
 ## Structure
 
-- `index.html` — home
-- `wiki/` — documentation categories (Projects / Notes / Guides / About)
+- `index.html` — home (VON)
+- `wiki/index.html` — Wiki hub (Projects / NOTES / Guides / About)
+- `wiki/notes.html` — NOTES · 设定文档
+- `wiki/worldview.html` · `wiki/boundary-ui.html` — setting docs
 - `assets/` — CSS & JS
 
-## Links
+## Live
 
-- Profile: https://github.com/SodaSolas
-- Arcadia-Farm: https://github.com/SodaSolas/Arcadia-Farm
+https://sodasolas.github.io/

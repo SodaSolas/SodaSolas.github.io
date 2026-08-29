@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wiki — VON</title>
-  <meta name="description" content="VON Wiki categories." />
+  <title>NOTES — VON</title>
+  <meta name="description" content="VON NOTES · 设定文档。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=JetBrains+Mono:wght@400;500&family=Sora:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -23,8 +23,8 @@
       <a class="topbar__mark" href="../index.html">V<span>ON</span></a>
       <nav class="topbar__nav" aria-label="主导航">
         <a href="../index.html">Home</a>
-        <a href="index.html" aria-current="page">Wiki</a>
-        <a href="notes.html">NOTES</a>
+        <a href="index.html">Wiki</a>
+        <a href="notes.html" aria-current="page">NOTES</a>
         <a href="https://github.com/SodaSolas" target="_blank" rel="noopener">Repos</a>
       </nav>
       <a class="topbar__gh" href="https://github.com/SodaSolas" target="_blank" rel="noopener">
@@ -35,38 +35,48 @@
 
     <main>
       <header class="page-head">
-        <p class="page-head__kicker">Documentation</p>
-        <h1>Wiki</h1>
-        <p>按分类浏览。设定文档在 <a href="notes.html">NOTES</a>。</p>
+        <p class="page-head__kicker">CAT / 02 · NOTES</p>
+        <h1>NOTES</h1>
+        <p>设定分类：世界观与技术留存。</p>
       </header>
 
-      <div class="wiki-grid">
-        <a class="wiki-cat" href="projects.html">
-          <span class="wiki-cat__code">CAT / 01</span>
-          <h2>Projects</h2>
-          <p>进行中的仓库、游戏原型与源码入口。</p>
+      <div class="wiki-grid wiki-grid--setting">
+        <a class="wiki-cat" href="worldview.html">
+          <span class="wiki-cat__code">SET / 01</span>
+          <h2>阿卡狄亚 · 世界观</h2>
+          <p>月尘、门、访客废料与 SEI——已定稿宇宙观设定集。</p>
         </a>
-        <a class="wiki-cat" href="notes.html">
-          <span class="wiki-cat__code">CAT / 02</span>
-          <h2>NOTES</h2>
-          <p>设定 · 阿卡狄亚世界观与边界震荡 UI。</p>
-        </a>
-        <a class="wiki-cat" href="guides.html">
-          <span class="wiki-cat__code">CAT / 03</span>
-          <h2>Guides</h2>
-          <p>可复用的操作指南与上手流程。</p>
-        </a>
-        <a class="wiki-cat" href="about.html">
-          <span class="wiki-cat__code">CAT / 04</span>
-          <h2>About</h2>
-          <p>关于 VON 与本站说明。</p>
+        <a class="wiki-cat" href="boundary-ui.html">
+          <span class="wiki-cat__code">SET / 02</span>
+          <h2>边界震荡 · UI</h2>
+          <p>浮动气泡、三槽演出与双通道文本的 Godot VN 技术留存。</p>
         </a>
       </div>
+
+      <article class="doc" style="margin-top:0">
+        <aside class="doc__side">
+          <h2>Categories</h2>
+          <ul>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="notes.html" aria-current="page">NOTES</a></li>
+            <li><a href="guides.html">Guides</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </aside>
+        <div class="doc__body">
+          <h2>设定索引</h2>
+          <p>本页签存放设定向文档。从左侧分类可切换到 Projects / Guides / About。</p>
+          <ul>
+            <li><a href="worldview.html">阿卡狄亚 · 世界观设定集</a></li>
+            <li><a href="boundary-ui.html">《边界震荡》UI 技术梳理</a></li>
+          </ul>
+        </div>
+      </article>
     </main>
 
     <footer class="footer">
-      <span>Wiki · VON</span>
-      <a href="../index.html">← Home</a>
+      <span>NOTES · VON</span>
+      <a href="index.html">← Wiki</a>
     </footer>
   </div>
 

@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wiki — VON</title>
-  <meta name="description" content="VON Wiki categories." />
+  <title>Guides — VON</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=JetBrains+Mono:wght@400;500&family=Sora:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -23,7 +22,7 @@
       <a class="topbar__mark" href="../index.html">V<span>ON</span></a>
       <nav class="topbar__nav" aria-label="主导航">
         <a href="../index.html">Home</a>
-        <a href="index.html" aria-current="page">Wiki</a>
+        <a href="index.html">Wiki</a>
         <a href="notes.html">NOTES</a>
         <a href="https://github.com/SodaSolas" target="_blank" rel="noopener">Repos</a>
       </nav>
@@ -35,41 +34,41 @@
 
     <main>
       <header class="page-head">
-        <p class="page-head__kicker">Documentation</p>
-        <h1>Wiki</h1>
-        <p>按分类浏览。设定文档在 <a href="notes.html">NOTES</a>。</p>
+        <p class="page-head__kicker">CAT / 03</p>
+        <h1>Guides</h1>
+        <p>可复用的上手步骤。</p>
       </header>
 
-      <div class="wiki-grid">
-        <a class="wiki-cat" href="projects.html">
-          <span class="wiki-cat__code">CAT / 01</span>
-          <h2>Projects</h2>
-          <p>进行中的仓库、游戏原型与源码入口。</p>
-        </a>
-        <a class="wiki-cat" href="notes.html">
-          <span class="wiki-cat__code">CAT / 02</span>
-          <h2>NOTES</h2>
-          <p>设定 · 阿卡狄亚世界观与边界震荡 UI。</p>
-        </a>
-        <a class="wiki-cat" href="guides.html">
-          <span class="wiki-cat__code">CAT / 03</span>
-          <h2>Guides</h2>
-          <p>可复用的操作指南与上手流程。</p>
-        </a>
-        <a class="wiki-cat" href="about.html">
-          <span class="wiki-cat__code">CAT / 04</span>
-          <h2>About</h2>
-          <p>关于 VON 与本站说明。</p>
-        </a>
-      </div>
+      <article class="doc">
+        <aside class="doc__side">
+          <h2>Categories</h2>
+          <ul>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="notes.html">NOTES</a></li>
+            <li><a href="guides.html" aria-current="page">Guides</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </aside>
+        <div class="doc__body">
+          <h2>打开 Arcadia:Farm</h2>
+          <ol>
+            <li>安装 Godot 4.7+</li>
+            <li>打开 <code>E:\Arcadia-Farm</code></li>
+            <li>按 <code>F5</code> 运行</li>
+          </ol>
+          <h3>预览本站</h3>
+          <p>打开 <code>E:\soda-site\index.html</code>，或访问 GitHub Pages。</p>
+          <h3>设定文档</h3>
+          <p>见 <a href="notes.html">NOTES</a> 页签。</p>
+        </div>
+      </article>
     </main>
 
     <footer class="footer">
-      <span>Wiki · VON</span>
-      <a href="../index.html">← Home</a>
+      <span>Guides · VON</span>
+      <a href="index.html">← Wiki</a>
     </footer>
   </div>
-
   <script src="../assets/js/main.js"></script>
 </body>
 </html>
