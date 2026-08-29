@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wiki — SodaSolas</title>
-  <meta name="description" content="SodaSolas documentation wiki categories." />
+  <title>设定 — SodaSolas</title>
+  <meta name="description" content="阿卡狄亚与其它项目设定文档。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=JetBrains+Mono:wght@400;500&family=Sora:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -23,7 +23,7 @@
       <a class="topbar__mark" href="../index.html">SODA<span>SOLAS</span></a>
       <nav class="topbar__nav" aria-label="主导航">
         <a href="../index.html">Home</a>
-        <a href="index.html" aria-current="page">Wiki</a>
+        <a href="index.html" aria-current="page">设定</a>
         <a href="https://github.com/SodaSolas" target="_blank" rel="noopener">Repos</a>
       </nav>
       <a class="topbar__gh" href="https://github.com/SodaSolas" target="_blank" rel="noopener">
@@ -34,44 +34,41 @@
 
     <main>
       <header class="page-head">
-        <p class="page-head__kicker">Documentation</p>
-        <h1>Wiki</h1>
-        <p>按分类浏览文档。每个分类对应一组笔记与外部仓库链接。</p>
+        <p class="page-head__kicker">Category / 设定</p>
+        <h1>设定</h1>
+        <p>世界观、系统与技术留存。当前收录阿卡狄亚宇宙观与《边界震荡》UI 梳理。</p>
       </header>
 
-      <div class="wiki-grid">
-        <a class="wiki-cat" href="projects.html">
-          <span class="wiki-cat__code">CAT / 01</span>
-          <h2>Projects</h2>
-          <p>进行中的仓库、游戏原型与源码入口。</p>
+      <div class="wiki-grid wiki-grid--setting">
+        <a class="wiki-cat" href="worldview.html">
+          <span class="wiki-cat__code">SET / 01</span>
+          <h2>阿卡狄亚 · 世界观</h2>
+          <p>月尘、门、访客废料与 SEI——已定稿宇宙观设定集。</p>
         </a>
-        <a class="wiki-cat" href="notes.html">
-          <span class="wiki-cat__code">CAT / 02</span>
-          <h2>Notes</h2>
-          <p>开发备忘、工具链与日常碎记。</p>
-        </a>
-        <a class="wiki-cat" href="guides.html">
-          <span class="wiki-cat__code">CAT / 03</span>
-          <h2>Guides</h2>
-          <p>可复用的操作指南与上手流程。</p>
-        </a>
-        <a class="wiki-cat" href="about.html">
-          <span class="wiki-cat__code">CAT / 04</span>
-          <h2>About</h2>
-          <p>关于站主、联系方式与本站说明。</p>
+        <a class="wiki-cat" href="boundary-ui.html">
+          <span class="wiki-cat__code">SET / 02</span>
+          <h2>边界震荡 · UI</h2>
+          <p>浮动气泡、三槽演出与双通道文本的 Godot VN 技术留存。</p>
         </a>
       </div>
 
-      <section class="menu-strip" aria-label="外部链接">
+      <section class="menu-strip" aria-label="其它入口">
         <div class="menu-strip__head">
-          <h2 class="menu-strip__title">External</h2>
-          <span class="menu-strip__meta">GITHUB</span>
+          <h2 class="menu-strip__title">Also</h2>
+          <span class="menu-strip__meta">LINKS</span>
         </div>
         <ul class="menu-list">
           <li>
+            <a href="about.html">
+              <span class="menu-list__idx">01</span>
+              <span class="menu-list__name">About</span>
+              <span class="menu-list__desc">关于站主与本站</span>
+            </a>
+          </li>
+          <li>
             <a href="https://github.com/SodaSolas" target="_blank" rel="noopener">
               <span class="menu-list__idx">GH</span>
-              <span class="menu-list__name">Profile</span>
+              <span class="menu-list__name">GitHub</span>
               <span class="menu-list__desc">github.com/SodaSolas</span>
             </a>
           </li>
@@ -79,14 +76,7 @@
             <a href="https://github.com/SodaSolas/Arcadia-Farm" target="_blank" rel="noopener">
               <span class="menu-list__idx">GH</span>
               <span class="menu-list__name">Arcadia-Farm</span>
-              <span class="menu-list__desc">Godot 4.7 farm prototype</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/SodaSolas/SodaNomore" target="_blank" rel="noopener">
-              <span class="menu-list__idx">GH</span>
-              <span class="menu-list__name">SodaNomore</span>
-              <span class="menu-list__desc">Public shell repo</span>
+              <span class="menu-list__desc">Godot farm prototype</span>
             </a>
           </li>
         </ul>
@@ -94,7 +84,7 @@
     </main>
 
     <footer class="footer">
-      <span>Wiki Index · SodaSolas</span>
+      <span>设定 · SodaSolas</span>
       <a href="../index.html">← Home</a>
     </footer>
   </div>

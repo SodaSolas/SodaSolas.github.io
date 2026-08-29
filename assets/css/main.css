@@ -783,3 +783,82 @@ img {
     display: none;
   }
 }
+
+/* —— Doc prose —— */
+.doc__lede {
+  margin: 0 0 1.5rem;
+  padding: 0.9rem 1rem;
+  border-left: 3px solid var(--cyan);
+  background: rgba(78, 184, 255, 0.08);
+  color: var(--ice);
+  font-size: 0.95rem;
+}
+
+.doc__body h2 {
+  scroll-margin-top: 1.5rem;
+}
+
+.doc__body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.85rem 0 1.25rem;
+  font-size: 0.88rem;
+}
+
+.doc__body th,
+.doc__body td {
+  border: 1px solid rgba(126, 200, 255, 0.18);
+  padding: 0.55rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.doc__body th {
+  background: rgba(78, 184, 255, 0.12);
+  color: var(--ice);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.doc__body td {
+  color: var(--mute);
+}
+
+.doc__body pre {
+  margin: 0.85rem 0 1.25rem;
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  background: rgba(2, 8, 18, 0.75);
+  border: 1px solid rgba(126, 200, 255, 0.16);
+  color: var(--foam);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.45;
+  white-space: pre;
+}
+
+.doc__body ol {
+  padding-left: 1.2rem;
+  color: var(--mute);
+}
+
+.doc__body .meta {
+  margin: 0 0 1rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--cyan);
+}
+
+.doc__toc a {
+  font-size: 0.82rem;
+}
+
+.wiki-grid--setting {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 860px) {
+  .wiki-grid--setting {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>边界震荡 · UI 技术梳理 — 设定</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=JetBrains+Mono:wght@400;500&family=Sora:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body>
+  <div class="sea" aria-hidden="true">
+    <div class="sea__caustic"></div>
+    <div class="sea__rays"></div>
+    <div class="sea__noise"></div>
+  </div>
+  <div class="bubbles" aria-hidden="true"></div>
+
+  <div class="shell">
+    <header class="topbar">
+      <a class="topbar__mark" href="../index.html">SODA<span>SOLAS</span></a>
+      <nav class="topbar__nav" aria-label="主导航">
+        <a href="../index.html">Home</a>
+        <a href="index.html" aria-current="page">设定</a>
+        <a href="https://github.com/SodaSolas" target="_blank" rel="noopener">Repos</a>
+      </nav>
+      <a class="topbar__gh" href="https://github.com/SodaSolas" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.57 7.57 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </header>
+
+    <main>
+      <header class="page-head">
+        <p class="page-head__kicker">SET / 02 · 设定</p>
+        <h1>《边界震荡》UI 技术梳理</h1>
+        <p>个人留存，供后续 Godot / VN 原型参考。</p>
+      </header>
+
+      <article class="doc">
+        <aside class="doc__side">
+          <h2>本篇目录</h2>
+          <ul class="doc__toc">
+            <li><a href="#diff">1. 与传统 ADV</a></li>
+            <li><a href="#layers">2. 画面分层</a></li>
+            <li><a href="#text">3. 双通道文本</a></li>
+            <li><a href="#slots">4. 三区域推进</a></li>
+            <li><a href="#godot">5. Godot 模块</a></li>
+            <li><a href="#data">6. 数据结构</a></li>
+            <li><a href="#src">7. 信息来源</a></li>
+            <li><a href="worldview.html">→ 阿卡狄亚世界观</a></li>
+            <li><a href="index.html">← 设定索引</a></li>
+          </ul>
+        </aside>
+
+        <div class="doc__body">
+          <p class="meta">整理时间：2026-08-29 · 来源：游玩观察 + 公开资料（Edanoue 官网、Steam、VN 标签）</p>
+          <p class="doc__lede">英文名 Lavender Quartz / 日文名 境界秤動。引擎：Godot 4（自研，无 Ren'Py / WebGAL）。类型：线性视觉小说（Floating Textbox、预渲染 3D 背景）。</p>
+
+          <h2 id="diff">1. 和传统 ADV 的差异</h2>
+          <table>
+            <thead><tr><th>维度</th><th>常见 ADV</th><th>《边界震荡》</th></tr></thead>
+            <tbody>
+              <tr><td>主对话</td><td>底部固定文本框 + 名字条</td><td>浮动气泡，锚在说话立绘附近</td></tr>
+              <tr><td>底部区域</td><td>承载全部台词</td><td>仅旁白 / 说明性文字</td></tr>
+              <tr><td>画面</td><td>全屏背景 + 立绘层</td><td>左 / 中 / 右 三槽位，各自独立推进</td></tr>
+              <tr><td>点击逻辑</td><td>全局「下一句」</td><td>可按区域分别翻页 / 切画面</td></tr>
+            </tbody>
+          </table>
+          <p>本质：演出层（三栏）与文本层（双通道）解耦，而不是「一个 TextBox 管所有事」。</p>
+
+          <h2 id="layers">2. 画面分层</h2>
+          <pre>┌─────────────────────────────────────────┐
+│ CanvasLayer: UI（气泡、旁白栏、系统键） │
+├─────────────────────────────────────────┤
+│ Stage: 三区域演出层（左 | 中 | 右）     │
+│   每槽：背景/插画/立绘/特效/局部 CG…    │
+├─────────────────────────────────────────┤
+│ 全局：色调、颗粒、黑白 shader、转场     │
+└─────────────────────────────────────────┘</pre>
+          <ul>
+            <li>背景为预渲染 3D 场景（非实时 3D 关卡），每槽或全屏可换静态图 / 序列帧 / CG。</li>
+            <li>三区域是三个独立 Stage Slot，可分别换内容、做转场，互不绑定完成状态。</li>
+          </ul>
+
+          <h2 id="text">3. 双通道文本系统</h2>
+          <h3>3.1 A. 角色对话 ― 浮动框（主通道）</h3>
+          <ul>
+            <li>定位依赖立绘，不是屏幕固定 Y 坐标。</li>
+            <li>流程：脚本指定 speaker + slot(left|center|right) → 立绘显示/更新 → 按锚点算气泡 position → 换说话人时气泡迁移或淡出再淡入。</li>
+            <li>概念公式：<code>Bubble.position = slot.transform × figure.anchor("speech") + offset</code></li>
+            <li>名字、正文、CTC 均在气泡节点内；多角色同屏时，气泡挂当前说话者。</li>
+          </ul>
+          <h3>3.2 B. 底部栏 ― 旁白（副通道）</h3>
+          <ul>
+            <li>固定在屏幕下方，不承担角色对白。</li>
+            <li>用途：环境描写、内心独白、时间跳转、章节提示、说明书式叙述。</li>
+            <li>与主通道可并行：上方三栏继续播立绘/CG，下方横条滚旁白。</li>
+          </ul>
+
+          <h2 id="slots">4. 三区域独立推进</h2>
+          <p>可理解为 3 条并行的 Presentation Track：</p>
+          <pre>左槽 (L)     中槽 (C)     右槽 (R)
+输入 stage[l]  stage[c]     stage[r]
+状态 {bg, figure, fx}  {...}  {...}
+推进 advance(l)? advance(c)? advance(r)?</pre>
+          <table>
+            <thead><tr><th>情况</th><th>行为</th></tr></thead>
+            <tbody>
+              <tr><td>仅一句对白，绑定中槽</td><td>只更新 C 的气泡；L/R 不动</td></tr>
+              <tr><td>左槽切 CG，右槽继续对话</td><td>L fade 换图；R 气泡照常打字</td></tr>
+              <tr><td>脚本标记 advance:left</td><td>仅左槽切下一画面；其它槽冻结</td></tr>
+              <tr><td>旁白行</td><td>底部栏打字；三槽可不动或后台 slow pan</td></tr>
+            </tbody>
+          </table>
+          <p>「下一句」不是全局单一 step，而是带 <code>targets: [L,C,R,narration]</code> 的分发式指令。</p>
+
+          <h3>4.1 脚本概念模型（推测）</h3>
+          <pre>- say:
+    speaker: 奇尔希姆
+    slot: right
+    text: "……"
+- stage:
+    left: { image: cg_facility.png, transition: fade }
+    advance: left
+- narration:
+    text: "戒严令下的米拉纳尔克，夜雾很浓。"
+    advance: narration</pre>
+
+          <h2 id="godot">5. Godot 运行时模块（推测）</h2>
+          <table>
+            <thead><tr><th>模块</th><th>职责</th></tr></thead>
+            <tbody>
+              <tr><td>StageDirector</td><td>管理 L/C/R；set_slot / advance_slot</td></tr>
+              <tr><td>FigureInstance</td><td>立绘 + 锚点 + 差分/嘴型</td></tr>
+              <tr><td>FloatingDialogue</td><td>气泡 UI；挂 Figure/槽位；打字机、CTC</td></tr>
+              <tr><td>NarrationBar</td><td>底部 PanelContainer + RichTextLabel</td></tr>
+              <tr><td>LineInterpreter</td><td>解析脚本行 → 分发 dialogue / narration / stage</td></tr>
+              <tr><td>InputRouter</td><td>点击时按 pending track 消费输入</td></tr>
+              <tr><td>TransitionPlayer</td><td>每槽独立 tween / shader 转场</td></tr>
+            </tbody>
+          </table>
+          <p>输入路由优先级（推测）：打字未完成 → 先 complete；旁白 pending → 完成旁白；单槽 advance 标记 → 只推进该槽；多路并行按 priority / focus track 排队。</p>
+
+          <h2 id="data">6. 最小数据结构（复刻参考）</h2>
+          <pre>Line:
+  kind: say | narration | stage | wait | sfx
+  targets: [left, center, right, narration]
+  await: [left, ...]
+
+SlotState:
+  background, figure, overlay, transition
+
+FigureState:
+  texture, position, anchors: { speech: Vector2 }</pre>
+
+          <h2 id="src">7. 信息来源说明</h2>
+          <ul>
+            <li>已确认：Godot 自研；Floating Textbox；线性 kinetic novel；预渲染背景；Edanoue credits 含 GodotSteam、gdUnit4。</li>
+            <li>来自体验归纳：三区域独立推进；对话跟立绘；底栏仅旁白。</li>
+            <li>未找到：Edanoue 公开技术博客、脚本格式文档、源码。</li>
+          </ul>
+          <p>后续若做 Godot 原型，可从此文拆 StageDirector + 三槽 + 双文本通道。</p>
+        </div>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <span>边界震荡 UI · 设定</span>
+      <a href="index.html">← 设定索引</a>
+    </footer>
+  </div>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
